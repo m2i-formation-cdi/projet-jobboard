@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+//Importation des routes
+const routesCandidats = require('./routes/candidats');
+
 //Initialisation de l'application Express
 const app = express();
 
@@ -16,7 +19,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 //Pour autoriser les connexions provenant d'autre domaines
 app.use(cors());
 
-
+//Déclaration des routes
+app.use('/candidat', routesCandidats);
 
 //Lancement de l'application
 app.listen(3000);
