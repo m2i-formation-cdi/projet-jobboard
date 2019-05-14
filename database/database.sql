@@ -18,10 +18,10 @@ CREATE TABLE candidats(
    ville VARCHAR(30) NOT NULL,
    telephone CHAR(10),
    titre VARCHAR(80) NOT NULL,
-   id_genre TINYINT UNSIGNED NOT NULL
+   id_genre TINYINT UNSIGNED NOT NULL,
    PRIMARY KEY(id),
    CONSTRAINT candidats_to_genres
-      FOREIGN KEY id_genre
+      FOREIGN KEY (id_genre)
       REFERENCES genres(id)
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE curriculum_vitae(
    id_candidat INT UNSIGNED,
    PRIMARY KEY(id),
    CONSTRAINT cv_to_candidat
-      FOREIGN KEY id_candidat
+      FOREIGN KEY (id_candidat)
       REFERENCES candidats(id)
    
 );
@@ -53,10 +53,10 @@ CREATE TABLE entreprises(
    ville VARCHAR(30) NOT NULL,
    telephone CHAR(10),
    siret CHAR(14) NOT NULL,
-   id_secteur TINYINT UNSIGNED NOT NULL
+   id_secteur TINYINT UNSIGNED NOT NULL,
    PRIMARY KEY(id),
    CONSTRAINT enterprises_to_secteur
-      FOREIGN KEY id_secteur
+      FOREIGN KEY (id_secteur)
       REFERENCES secteurs(id)
 );
 
@@ -78,13 +78,13 @@ CREATE TABLE annonces(
    salaire_max MEDIUMINT UNSIGNED NOT NULL,
    PRIMARY KEY(id),
    CONSTRAINT annonces_to_type_contrat
-      FOREIGN KEY id_type_contrat
+      FOREIGN KEY (id_type_contrat)
       REFERENCES types_contrats(id),
    CONSTRAINT annonces_to_profession
-      FOREIGN KEY id_profession
+      FOREIGN KEY (id_profession)
       REFERENCES professions(id),
    CONSTRAINT annonces_to_entreprise
-      FOREIGN KEY id_entreprise
+      FOREIGN KEY (id_entreprise)
       REFERENCES entrepises(id)
 );
 
@@ -97,13 +97,13 @@ CREATE TABLE candidatures(
    id_cv INT UNSIGNED, 
    PRIMARY KEY(id),
    CONSTRAINT candidature_to_entreprise
-      FOREIGN KEY id_entreprise
+      FOREIGN KEY (id_entreprise)
       REFERENCES entrepises(id),
    CONSTRAINT candidature_to_candidat
-      FOREIGN KEY id_candidat
+      FOREIGN KEY (id_candidat)
       REFERENCES candidats(id),
    CONSTRAINT candidature_to_cv
-      FOREIGN KEY id_cv
+      FOREIGN KEY (id_cv)
       REFERENCES curriculum_vitae(id)
 );
 
@@ -113,7 +113,7 @@ CREATE TABLE mots_clefs(
    
    PRIMARY KEY(id_annonce, mot_clef),
    CONSTRAINT mot_clef_to_annonce
-      FOREIGN KEY id_annonce
+      FOREIGN KEY (id_annonce)
       REFERENCES annonces(id)
 );
 
