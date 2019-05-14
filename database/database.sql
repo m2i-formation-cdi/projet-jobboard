@@ -45,7 +45,6 @@ CREATE TABLE curriculum_vitae(
 CREATE TABLE entreprises(
    id INT UNSIGNED AUTO_INCREMENT,
    raison_sociale VARCHAR(50) NOT NULL,
-   prenom VARCHAR(30) NOT NULL,
    mdp VARCHAR(45) NOT NULL,
    email VARCHAR(30) NOT NULL,
    adresse VARCHAR(38) NOT NULL,
