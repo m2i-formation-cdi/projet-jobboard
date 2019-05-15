@@ -15,7 +15,8 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },  { path: 'candidate-form', loadChildren: './candidate-form/candidate-form.module#CandidateFormPageModule' }
+
 ];
 
 @NgModule({
