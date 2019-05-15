@@ -14,7 +14,29 @@ export const config = {
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
- 
+  public appPages = [
+    {
+      title: 'Home',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'List',
+      url: '/list',
+      icon: 'list'
+    },
+    {
+      title: 'Ajouter votre entreprise',
+      url: '/entreprise-form',
+      icon: 'add'
+    },
+    {
+      title:'Ajouter un compte candidat',
+      url:'/candidate-form',
+      icon:'md-add-circle'
+    }
+  ];
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
