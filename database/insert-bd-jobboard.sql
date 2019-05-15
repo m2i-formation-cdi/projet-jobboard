@@ -79,6 +79,16 @@ VALUES
     ("3", "vendeur")
 ;
 
+TRUNCATE genres;
+
+insert into genres
+    (libelle)
+VALUES
+    ("Masculin"),
+    ("Feminin"),
+    ("Mixte")
+;
+
 TRUNCATE candidatures;
 
 insert into candidatures
