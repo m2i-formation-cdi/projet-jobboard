@@ -87,6 +87,18 @@ CREATE TABLE annonces(
       REFERENCES entrepises(id)
 );
 
+CREATE TABLE professions(
+   id TINYINT UNSIGNED AUTO_INCREMENT,
+   libelle VARCHAR(20) NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE types_contrats(
+   id TINYINT UNSIGNED AUTO_INCREMENT,
+   libelle VARCHAR(20) NOT NULL,
+   PRIMARY KEY(id)
+);
+
 CREATE TABLE candidatures(
    id INT UNSIGNED AUTO_INCREMENT,
    date_candidature DATE NOT NULL,
