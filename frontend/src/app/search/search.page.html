@@ -1,27 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Recherche des annonces
-    </ion-title>
-  </ion-toolbar>
+  <ion-toolbar> <ion-title>Rechercher des annonces</ion-title> </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
+    <ion-item>
+      <ion-label position="floating">Titre</ion-label>
+      <ion-input type="text" [(ngModel)]="credentials.titre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">description annonce </ion-label>
+      <ion-input type="password" [(ngModel)]="credentials.description_annonce"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">date annonce </ion-label>
+      <ion-input type="password" [(ngModel)]="credentials.date_annonce"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">salaire minimum </ion-label>
+      <ion-input type="password" [(ngModel)]="credentials.salaire_min"></ion-input>
+
+
+      <ion-item>
+        <ion-label position="floating">salaire maximum </ion-label>
+        <ion-input type="password" [(ngModel)]="credentials.salaire_max"></ion-input>
+      </ion-item>
+
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Statut</ion-label>
+      <ion-select [(ngModel)]="credentials.status">
+        <ion-select-option selected="true">Annonce</ion-select-option>
+
+      </ion-select>
     </ion-item>
   </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar> <ion-button expand="block" (click)="validForm()">Connexion</ion-button> </ion-toolbar>
+</ion-footer>
