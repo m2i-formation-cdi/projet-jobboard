@@ -1,3 +1,7 @@
+SET FOREIGN KEY = 0;
+
+TRUNCATE secteurs;
+
 insert into secteurs
     (libelle)
 values
@@ -9,6 +13,8 @@ values
     ("Automobile")
 ;
 
+TRUNCATE entreprises;
+
 insert into entreprises
     ( raison_sociale, mdp, email, adresse, code_postal, ville, telephone, siret, id_secteur)
 values
@@ -19,6 +25,7 @@ values
     ("Cheynet & Fils", "123", "CheynetFils@CheynetFils.com", "221 b Baker Street", "75011", "Paris", "0118192021", "12345678910116", "4")
 ;
 
+TRUNCATE types_contrats;
 
 insert into types_contrats
     (libelle)
@@ -28,6 +35,8 @@ VALUES
     ('Stage'),
     ('Alternance')
 ;
+
+TRUNCATE professions;
 
 insert into professions
     (libelle)
@@ -40,6 +49,8 @@ VALUES
     ("Mecanicien")
 ;
 
+TRUNCATE annonces;
+
 insert into annonces
     (date_annonce, titre, description_annonce , id_entreprise, id_profession, id_type_contrat, salaire_min, salaire_max)
 values
@@ -48,6 +59,7 @@ values
     ("2019-3-1", "Vendeur-Technicien Smartphones", "vendeur-technicien efficace sur le point de vente situé au sein de la Fnac", "3", "3", "1", "1100", "1300")
 ;
 
+TRUNCATE candidats;
 
 insert into candidats
     (nom,prenom, mdp, email, adresse, code_postal, ville, telephone, titre, id_genre)
@@ -57,6 +69,8 @@ VALUES
     ("John", "Jacques", "123", "john.jacques@gmail.com", "50 boulevard Jean Jaures", "92100", "Boulogne", "0605043050", "Mecanicien automobile", "3")
 ;
 
+TRUNCATE mots_clefs;
+
 insert into mots_clefs
     (id_annonce, mot_clef)
 VALUES
@@ -64,6 +78,8 @@ VALUES
     ("2", "peintre"),
     ("3", "vendeur")
 ;
+
+TRUNCATE candidatures;
 
 insert into candidatures
     ( date_candidature, id_candidat, id_entreprise, lettre_motivation, id_cv)
@@ -74,3 +90,5 @@ values
     ("2019-5-14", 1, 2, "Je suis motivé", 1),
     ("2019-5-10", 1, 2, "Je suis trop motivé", 1)
 ;
+
+SET FOREIGN KEY = 1;
