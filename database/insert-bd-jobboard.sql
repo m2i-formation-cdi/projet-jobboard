@@ -1,11 +1,12 @@
-insert into candidatures
-    ( date_candidature, id_candidat, id_entreprise, lettre_motivation, id_cv)
+insert into secteurs
+    (libelle)
 values
-    ("2019-5-14", 1, 1, "Je suis motivé", 1),
-    ("2019-5-10", 2, 1, "Je suis plus motivé", 1),
-    ("2019-5-05", 3, 1, "Je suis pas motivé", 1),
-    ("2019-5-14", 1, 2, "Je suis motivé", 1),
-    ("2019-5-10", 1, 2, "Je suis trop motivé", 1)
+    ("Batiment"),
+    ("Commerce"),
+    ("Agroalimentaire"),
+    ("Informatique"),
+    ("Edition"),
+    ("Automobile")
 ;
 
 insert into entreprises
@@ -18,16 +19,6 @@ values
     ("Cheynet & Fils", "123", "CheynetFils@CheynetFils.com", "221 b Baker Street", "75011", "Paris", "0118192021", "12345678910116", "4")
 ;
 
-insert into secteurs
-    (libelle)
-values
-    ("Batiment"),
-    ("Commerce"),
-    ("Agroalimentaire"),
-    ("Informatique"),
-    ("Edition"),
-    ("Automobile")
-;
 
 insert into types_contrats
     (libelle)
@@ -50,7 +41,7 @@ VALUES
 ;
 
 insert into annonces
-    (date_annonce, titre, desciption_annonce, id_entreprise, id_profession, id_type_contrat, salaire_min, salaire_max)
+    (date_annonce, titre, description_annonce , id_entreprise, id_profession, id_type_contrat, salaire_min, salaire_max)
 values
     ("2019-1-1", "Developpeur full-stack / dev-ops", "Sous la responsabilité du directeur technique et en collaboration avec l’équipe de développement, vous serez en charge de la conception et du développement des outils Vinium (CMS, Stack front-end, APIs, dev-ops).", "5", '1', '1', '2000', '3000'),
     ("2019-2-1", "Peintre en bâtiment", "Recherche peintre en bâtiment expérimenté, ponctuel, sérieux.", "4", '2', '2', '1500', '2000'),
@@ -72,4 +63,14 @@ VALUES
     ("1", "developpeur"),
     ("2", "peintre"),
     ("3", "vendeur")
+;
+
+insert into candidatures
+    ( date_candidature, id_candidat, id_entreprise, lettre_motivation, id_cv)
+values
+    ("2019-5-14", 1, 1, "Je suis motivé", 1),
+    ("2019-5-10", 2, 1, "Je suis plus motivé", 1),
+    ("2019-5-05", 3, 1, "Je suis pas motivé", 1),
+    ("2019-5-14", 1, 2, "Je suis motivé", 1),
+    ("2019-5-10", 1, 2, "Je suis trop motivé", 1)
 ;
