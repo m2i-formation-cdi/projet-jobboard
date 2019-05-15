@@ -15,11 +15,7 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  {
-    path: 'entreprise-form',
-    loadChildren: './entreprise-form/entreprise-form.module#EntrepriseFormPageModule'
-  }
-
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
 ];
 
 @NgModule({
