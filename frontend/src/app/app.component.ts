@@ -5,9 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserService } from './services/user.service';
 
-export const config = {
-  API_URL: 'http://localhost:3000/login'
-};
 
 @Component({
   selector: 'app-root',
