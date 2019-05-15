@@ -8,7 +8,7 @@ COLLATE utf8_general_ci;
 USE jobboard;
 
 CREATE TABLE candidats(
-   id INT UNSIGNED,
+   id INT UNSIGNED AUTO_INCREMENT,
    nom VARCHAR(30) NOT NULL,
    prenom VARCHAR(30) NOT NULL,
    mdp VARCHAR(45) NOT NULL,
@@ -26,13 +26,13 @@ CREATE TABLE candidats(
 );
 
 CREATE TABLE genres(
-   id TINYINT UNSIGNED,
+   id TINYINT UNSIGNED AUTO_INCREMENT,
    libelle VARCHAR(20) NOT NULL,
    PRIMARY KEY(id)
 );
 
 CREATE TABLE curriculum_vitae(
-   id INT UNSIGNED,
+   id INT UNSIGNED AUTO_INCREMENT,
    content BLOB NOT NULL,
    id_candidat INT UNSIGNED,
    PRIMARY KEY(id),
@@ -43,9 +43,8 @@ CREATE TABLE curriculum_vitae(
 );
 
 CREATE TABLE entreprises(
-   id INT UNSIGNED,
+   id INT UNSIGNED AUTO_INCREMENT,
    raison_sociale VARCHAR(50) NOT NULL,
-   prenom VARCHAR(30) NOT NULL,
    mdp VARCHAR(45) NOT NULL,
    email VARCHAR(30) NOT NULL,
    adresse VARCHAR(38) NOT NULL,
@@ -61,13 +60,13 @@ CREATE TABLE entreprises(
 );
 
 CREATE TABLE secteurs(
-   id TINYINT UNSIGNED,
+   id TINYINT UNSIGNED AUTO_INCREMENT,
    libelle VARCHAR(20) NOT NULL,
    PRIMARY KEY(id)
 );
 
 CREATE TABLE annonces(
-   id INT UNSIGNED,
+   id INT UNSIGNED AUTO_INCREMENT,
    date_annonce DATE NOT NULL,
    titre VARCHAR(50) NOT NULL,
    description_annonce TEXT NOT NULL,
@@ -88,8 +87,20 @@ CREATE TABLE annonces(
       REFERENCES entrepises(id)
 );
 
+CREATE TABLE professions(
+   id SMALLINT UNSIGNED AUTO_INCREMENT,
+   libelle VARCHAR(20) NOT NULL,
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE types_contrats(
+   id TINYINT UNSIGNED AUTO_INCREMENT,
+   libelle VARCHAR(20) NOT NULL,
+   PRIMARY KEY(id)
+);
+
 CREATE TABLE candidatures(
-   id INT UNSIGNED,
+   id INT UNSIGNED AUTO_INCREMENT,
    date_candidature DATE NOT NULL,
    id_candidat INT UNSIGNED NOT NULL,
    id_entreprise INT UNSIGNED NOT NULL,
