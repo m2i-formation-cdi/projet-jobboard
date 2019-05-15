@@ -19,7 +19,7 @@ export class UserService {
   public authenticate(credentials){
     return new Promise(
       (resolve, reject)=> {
-        
+
       }
     );
   }
@@ -32,7 +32,23 @@ export class UserService {
     return this.role == 'entreprise';
   }
 
-  public isAuthenticated(){
-    this.id > 0;
+  public isAuthenticated():boolean{
+    return this.id > 0;
+  }
+
+  public getId():number{
+    return this.id;
+  }
+
+  public getEmail(): string{
+    return this.email;
+  }
+
+  public getToken(): string{
+    return this.token;
+  }
+
+  public getRole(): string{
+    return this.role;
   }
 }
