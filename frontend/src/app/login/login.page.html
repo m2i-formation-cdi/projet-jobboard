@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar> <ion-title>login</ion-title> </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">email</ion-label>
+      <ion-input type="text" [(ngModel)]="credentials.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">mot de passe</ion-label>
+      <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Statut</ion-label>
+      <ion-select [(ngModel)]="credentials.status">
+        <ion-select-option selected="true"> Candidat </ion-select-option>
+        <ion-select-option> Entreprise </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar> <ion-button expand="block" (click)="validForm()">Connexion</ion-button> </ion-toolbar>
+</ion-footer>
