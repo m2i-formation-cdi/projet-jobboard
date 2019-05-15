@@ -1,4 +1,4 @@
-SET FOREIGN KEY = 0;
+SET foreign_key_checks = 0;
 
 TRUNCATE secteurs;
 
@@ -91,4 +91,4 @@ values
     ("2019-5-10", 1, 2, "Je suis trop motivé", 1)
 ;
 
-SET FOREIGN KEY = 1;
+SET foreign_key_checks = 1;
