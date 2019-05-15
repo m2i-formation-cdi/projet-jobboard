@@ -35,7 +35,7 @@ export class EntrepriseFormPage implements OnInit {
 
 
   sendFormInput() {
-    console.log(this.entrepriseInput.id_secteur);
+  
     let req = this.httpClient.post('http://localhost:3000/entreprise/new', this.entrepriseInput)
       .subscribe(
         (res: any) => {
