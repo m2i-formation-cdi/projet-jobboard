@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,18 +15,26 @@ export class LoginPage implements OnInit {
     status: 'candidat'
   }
 
-  constructor(private user: UserService, private router:Router) { }
+  constructor(
+    private user: UserService,
+    private router: Router) { }
 
   ngOnInit() {
   }
 
-  validForm(){
+  validForm() {
     this.user.authenticate(this.credentials)
       .then(
-        ()=> this.router.navigateByUrl('/home') 
+        (response: any) => {
+          if (response.success) {
+            this.router.navigateByUrl('/home');
+          } else {
+            console.log(response.error);
+          }
+        }
       )
       .catch(
-        (err)=> console.log(err)
+        (err) => console.log(err)
       )
   }
 

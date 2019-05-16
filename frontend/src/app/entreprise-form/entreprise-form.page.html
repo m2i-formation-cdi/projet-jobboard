@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajout d'une entreprise</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Raison Sociale</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.raison_sociale"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Adresse</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.adresse"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Code postal</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.code_postal"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position=" floating">Ville</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.ville"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Telephone</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.telephone"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Siret</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.siret"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Secteurs d'activité</ion-label>
+      <ion-select [(ngModel)]="entrepriseInput.id_secteur">
+        <ion-select-option *ngFor='let secteur of secteurs' value={{secteur.id}}>{{secteur.libelle}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.mdp"></ion-input>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-button expand="block" size="large" (click)="sendFormInput()">Valider</ion-button>
+
+</ion-footer>

@@ -5,9 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UserService } from './services/user.service';
 
-export const config = {
-  API_URL: 'http://localhost:3000/login'
-};
 
 @Component({
   selector: 'app-root',
@@ -24,6 +21,16 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Ajouter votre entreprise',
+      url: '/entreprise-form',
+      icon: 'add'
+    },
+    {
+      title:'Ajouter un compte candidat',
+      url:'/candidate-form',
+      icon:'md-add-circle'
     }
   ];
 

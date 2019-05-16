@@ -103,13 +103,13 @@ CREATE TABLE candidatures(
    id INT UNSIGNED AUTO_INCREMENT,
    date_candidature DATE NOT NULL,
    id_candidat INT UNSIGNED NOT NULL,
-   id_entreprise INT UNSIGNED NOT NULL,
+   id_annonce INT UNSIGNED NOT NULL,
    lettre_motivation BLOB NOT NULL,
    id_cv INT UNSIGNED, 
    PRIMARY KEY(id),
-   CONSTRAINT candidature_to_entreprise
-      FOREIGN KEY (id_entreprise)
-      REFERENCES entrepises(id),
+   CONSTRAINT candidature_to_annonce
+      FOREIGN KEY (id_annonce)
+      REFERENCES annonces(id),
    CONSTRAINT candidature_to_candidat
       FOREIGN KEY (id_candidat)
       REFERENCES candidats(id),
