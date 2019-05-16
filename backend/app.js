@@ -88,6 +88,9 @@ app.use('/entreprise', routesEntreprises);
 app.use('/annonce', routesAnnonces);
 app.use('/', routesCandidatures);
 
+
+
+
 //Lancement de l'application
 app.listen(3000);
 

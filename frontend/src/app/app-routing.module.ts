@@ -15,6 +15,9 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
+  { path: 'search', 
+    loadChildren: './search/search.module#SearchPageModule' },
+
   { 
     path: 'login', 
     loadChildren: './login/login.module#LoginPageModule' 
