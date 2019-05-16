@@ -92,7 +92,7 @@ VALUES
 TRUNCATE candidatures;
 
 insert into candidatures
-    ( date_candidature, id_candidat, id_entreprise, lettre_motivation, id_cv)
+    ( date_candidature, id_candidat, id_annonce, lettre_motivation, id_cv)
 values
     ("2019-5-14", 1, 1, "Je suis motivé", 1),
     ("2019-5-10", 2, 1, "Je suis plus motivé", 1),

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,7 +15,9 @@ export class LoginPage implements OnInit {
     status: 'candidat'
   }
 
-  constructor(private user: UserService, private router:Router) { }
+  constructor(
+    private user: UserService, 
+    private router:Router) { }
 
   ngOnInit() {
   }
