@@ -42,7 +42,7 @@ app.use( (req, res, next)=> {
  */
 app.use('/login', (req, res, next)=> {
    let sql;
-   if(req.body.candidat){
+   if(req.body.status == 'candidat'){
       sql = "SELECT * FROM candidats";
       req.role = 'candidat';
    } else {
