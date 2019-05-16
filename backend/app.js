@@ -44,22 +44,29 @@ app.use('/login', (req, res, next)=> {
    let sql;
    if(req.body.candidat){
       sql = "SELECT * FROM candidats";
+      req.role = 'candidat';
    } else {
       sql = "SELECT * FROM entreprises";
+      req.role = 'entreprise';
    }
 
    sql += " WHERE email=? AND mdp= ?";
 
-   const params = {
-      email: req.body.email,
-      password: req.body.password
-   };
+   const params = [
+      req.body.email,
+      req.body.mdp
+   ];
+
+   console.log(sql);
+
+   console.log(params);
 
    db.query(sql, params, (err, data)=> {
       if(err){
          res.json({success: false, error: err});
       } else {
          req.user = data;
+         console.log(data);
          next();
       }
    });
@@ -67,7 +74,9 @@ app.use('/login', (req, res, next)=> {
 
 app.post('/login', (req, res) => {
    if(req.user && req.user.length >0){
-      res.json({success: true, data: user});
+      let user = req.user[0];
+      user.role = req.role;
+      res.json({success: true, user: req.user[0]});
    } else {
       res.json({success: false, error: "Infos d'authentification incorrectes"});
    }
