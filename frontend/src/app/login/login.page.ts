@@ -11,7 +11,7 @@ export class LoginPage implements OnInit {
 
   public credentials = {
     email: null,
-    password: null,
+    mdp: null,
     status: 'candidat'
   }
 
