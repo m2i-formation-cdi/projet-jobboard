@@ -23,12 +23,17 @@ export class UserService {
       (resolve, reject)=> {
         this.http.post(environment.API_URL + '/login', credentials)
         .subscribe(
-          (data:any)=> {
-            this.id = data.user.id;
-            //this.token = data.token;
-            this.email = data.user.email;
-            this.role = data.user.role;
-            resolve(data);
+          (response:any)=> {
+            if(response.success){
+              this.id = response.user.id;
+              //this.token = response.token;
+              this.email = response.user.email;
+              this.role = response.user.role;
+            }
+
+            console.log(response);
+
+            resolve(response);
           },
           (err) => {
             reject(err);
@@ -84,6 +89,13 @@ export class UserService {
   public setRole(role):UserService{
     this.role = role;
     return this;
+  }
+
+  public logout(){
+    this.id = null;
+    this.email = null;
+    this.token = null;
+    this.role = 'anonymous';
   }
 
 }

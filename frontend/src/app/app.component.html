@@ -18,7 +18,7 @@
           </ion-menu-toggle>
 
           <ion-menu-toggle *ngIf="user.isAuthenticated()">
-            <ion-item>Logout</ion-item>
+            <ion-item (click)="logout()">Logout</ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle *ngIf="user.isCandidat()">

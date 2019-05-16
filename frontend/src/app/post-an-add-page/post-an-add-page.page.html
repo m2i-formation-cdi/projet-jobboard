@@ -1,9 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>postAnAddPage</ion-title>
+    <ion-title>Poster une annonce</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Titre</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.titre"></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label position="floating">Desciption de l'annonce</ion-label>
+      <ion-input type="text" [(ngModel)]="entrepriseInput.desciption_annonce"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label position="floating">Profession</ion-label>
+      <ion-select [(ngModel)]="entrepriseInput.id_secteur">
+        <ion-select-option *ngFor='let secteur of secteurs' value={{secteur.id}}>{{secteur.libelle}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Type de contrat</ion-label>
+      <ion-select [(ngModel)]="entrepriseInput.id_secteur">
+        <ion-select-option *ngFor='let secteur of secteurs' value={{secteur.id}}>{{secteur.libelle}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Salaire</ion-label>
+      <ion-range min="0" max="1000000" pin="true" step="1" snaps="true" dual-knobs="true"></ion-range>
+    </ion-item>
+
+  </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-button expand="block" size="large" (click)="sendFormInput()">Valider</ion-button>
+
+</ion-footer>
