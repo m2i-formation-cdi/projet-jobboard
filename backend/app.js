@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const db = require('./shared/database');
+
 //Importation des routes
 const routesCandidats = require('./routes/candidats');
 const routesEntreprises = require('./routes/entreprises');
@@ -21,6 +23,46 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Gestion des CORS (Cross Origin Ressource Sharing)
 //Pour autoriser les connexions provenant d'autre domaines
 app.use(cors());
+
+app.use('/login', (req, res, next)=> {
+
+});
+
+/**
+ * Requête afin de trouver 
+ */
+app.use('/login', (req, res, next)=> {
+   let sql;
+   if(req.body.candidat){
+      sql = "SELECT * FROM candidats";
+   } else {
+      sql = "SELECT * FROM entreprises";
+   }
+
+   sql += " WHERE email=? AND mdp= ?";
+
+   const params = {
+      email: req.body.email,
+      password: req.body.password
+   };
+
+   db.query(sql, params, (err, data)=> {
+      if(err){
+         res.json({success: false, error: err});
+      } else {
+         req.user = data;
+         next();
+      }
+   });
+});
+
+app.post('/login', (req, res) => {
+   if(req.data && req.data.length >0){
+      res.json({success: true, data: user.data});
+   } else {
+      res.json({success: false, error: "Infos d'authentification incorrectes"});
+   }
+});
 
 //Déclaration des routes
 app.use('/candidat', routesCandidats);
