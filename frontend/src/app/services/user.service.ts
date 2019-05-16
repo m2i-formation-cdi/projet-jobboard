@@ -24,10 +24,10 @@ export class UserService {
         this.http.post(environment.API_URL + '/login', credentials)
         .subscribe(
           (data:any)=> {
-            this.id = data.user.id;
-            this.token = data.token;
-            this.email = data.user.email;
-            this.role = data.user.role;
+            this.id = data.id;
+            //this.token = data.token;
+            this.email = data.email;
+            this.role = data.role;
             resolve();
           },
           (err) => {
@@ -85,5 +85,5 @@ export class UserService {
     this.role = role;
     return this;
   }
-  
+
 }
