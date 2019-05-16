@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'entreprise-form',
     loadChildren: './entreprise-form/entreprise-form.module#EntrepriseFormPageModule'
+  },
+  { 
+    path: 'post-an-add-page', 
+    loadChildren: './post-an-add-page/post-an-add-page.module#PostAnAddPagePageModule' 
   }
 ];
 
