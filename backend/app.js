@@ -38,7 +38,7 @@ app.use( (req, res, next)=> {
 });
 
 /**
- * Requête afin de trouver 
+ * Requête afin d'authentifier l'utilisateur 
  */
 app.use('/login', (req, res, next)=> {
    let sql;
@@ -72,6 +72,9 @@ app.use('/login', (req, res, next)=> {
    });
 });
 
+/**
+ * Route d'authentification
+ */
 app.post('/login', (req, res) => {
    if(req.user && req.user.length >0){
       let user = req.user[0];
