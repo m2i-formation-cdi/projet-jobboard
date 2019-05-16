@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-entreprise-form',
@@ -21,7 +22,7 @@ export class EntrepriseFormPage implements OnInit {
     id_secteur: ""
   }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
     let req = this.httpClient.get('http://localhost:3000/entreprise/secteur');
@@ -35,12 +36,12 @@ export class EntrepriseFormPage implements OnInit {
 
 
   sendFormInput() {
-  
+
     let req = this.httpClient.post('http://localhost:3000/entreprise/new', this.entrepriseInput)
       .subscribe(
         (res: any) => {
           if (res.insert) {
-
+            this.router.navigateByUrl('/home');
           } else {
             console.log(res.error);
           }
