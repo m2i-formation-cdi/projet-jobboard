@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const crypto = require('crypto');
 
 const db = require('./shared/database');
 
@@ -24,8 +25,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Pour autoriser les connexions provenant d'autre domaines
 app.use(cors());
 
-app.use('/login', (req, res, next)=> {
-
+/**
+ * Hashage du mot de passe
+ */
+app.use( (req, res, next)=> {
+ if(req.body.mdp){
+    req.body.mdp = crypto.createHash('sha1')
+                     .update(req.body.mdp)
+                     .digest('hex');
+ }
+ next();
 });
 
 /**
