@@ -9,7 +9,7 @@ router.post('/new', (req, res) => {
    const sql = "INSERT INTO entreprises SET ?";
    //Récupération des infos nécessaire pour l'insert
    const insertEntrepriseData = {
-      raison_social: req.body.raison_social,
+      raison_sociale: req.body.raison_sociale,
       mdp: req.body.mdp,
       email: req.body.email,
       adresse: req.body.adresse,
@@ -23,17 +23,29 @@ router.post('/new', (req, res) => {
    db.query(
       sql,
       insertEntrepriseData,
-      (err) => {
+      (err, resu, fiel) => {
          //Gestion de la réponse
          if (err) {
             res.json({ error: err });
          } else {
-            res.json({ insert: OK });
+           
+            res.json({ insert: resu });
          }
       });
 
 });
 
+
+router.get('/secteur', (req, res) => {
+   const sql = "SELECT * FROM secteurs";
+   db.query(sql, (err, data) => {
+      if (err) {
+         res.json({ error: err });
+      } else {
+         res.json({ secteur: data });
+      }
+   })
+});
 
 
 

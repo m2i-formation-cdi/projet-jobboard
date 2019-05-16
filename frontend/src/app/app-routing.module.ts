@@ -15,8 +15,22 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },  { path: 'candidate-form', loadChildren: './candidate-form/candidate-form.module#CandidateFormPageModule' }
-
+  { 
+    path: 'login', 
+    loadChildren: './login/login.module#LoginPageModule' 
+  },
+  { 
+    path: 'candidate-form', 
+    loadChildren: './candidate-form/candidate-form.module#CandidateFormPageModule' 
+  },
+  {
+    path: 'entreprise-form',
+    loadChildren: './entreprise-form/entreprise-form.module#EntrepriseFormPageModule'
+  },
+  { 
+    path: 'post-an-add-page', 
+    loadChildren: './post-an-add-page/post-an-add-page.module#PostAnAddPagePageModule' 
+  }
 ];
 
 @NgModule({

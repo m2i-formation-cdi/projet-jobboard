@@ -72,4 +72,32 @@ VALUES
     ("1", "developpeur"),
     ("2", "peintre"),
     ("3", "vendeur")
+<<<<<<< HEAD
 ;
+=======
+;
+
+TRUNCATE genres;
+
+insert into genres
+    (libelle)
+VALUES
+    ("Masculin"),
+    ("Feminin"),
+    ("Mixte")
+;
+
+TRUNCATE candidatures;
+
+insert into candidatures
+    ( date_candidature, id_candidat, id_annonce, lettre_motivation, id_cv)
+values
+    ("2019-5-14", 1, 1, "Je suis motivé", 1),
+    ("2019-5-10", 2, 1, "Je suis plus motivé", 1),
+    ("2019-5-05", 3, 1, "Je suis pas motivé", 1),
+    ("2019-5-14", 1, 2, "Je suis motivé", 1),
+    ("2019-5-10", 1, 2, "Je suis trop motivé", 1)
+;
+
+SET foreign_key_checks = 1;
+>>>>>>> b3b995c780013c3a8483c7c9b39b5d2077a2f7ca

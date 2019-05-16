@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,13 +15,30 @@ export class UserService {
 
   private role: string = 'anonymous'
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
 
   public authenticate(credentials){
     return new Promise(
       (resolve, reject)=> {
+        this.http.post(environment.API_URL + '/login', credentials)
+        .subscribe(
+          (response:any)=> {
+            if(response.success){
+              this.id = response.user.id;
+              //this.token = response.token;
+              this.email = response.user.email;
+              this.role = response.user.role;
+            }
 
+            console.log(response);
+
+            resolve(response);
+          },
+          (err) => {
+            reject(err);
+          }
+        )
       }
     );
   }
@@ -51,4 +70,25 @@ export class UserService {
   public getRole(): string{
     return this.role;
   }
+
+  public setId(id):UserService{
+    this.id = id;
+    return this;
+  }
+
+  public setEmail(email):UserService{
+    this.email = email;
+    return this;
+  }
+
+  public setToken(token):UserService{
+    this.token = token;
+    return this;
+  }
+
+  public setRole(role):UserService{
+    this.role = role;
+    return this;
+  }
+
 }
