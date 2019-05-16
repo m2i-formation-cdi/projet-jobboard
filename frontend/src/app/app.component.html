@@ -7,27 +7,29 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
+
         <ion-list>
+
           <ion-menu-toggle *ngIf="! user.isAuthenticated()">
             <ion-item routerLink="/login">Login</ion-item>
-            <ion-item>Inscription entreprise</ion-item>
-            <ion-item>Inscription candidat</ion-item>
+            <ion-item routerLink="/entreprise-form">Inscription entreprise</ion-item>
+            <ion-item routerLink="/candidate-form">Inscription candidat</ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle *ngIf="user.isAuthenticated()">
-              <ion-item>Logout</ion-item>
+            <ion-item>Logout</ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle *ngIf="user.isCandidat()">
-              <ion-item>Créer un CV</ion-item>
-              <ion-item>Rechercher des annonces</ion-item>
-              <ion-item>Définir des alertes</ion-item>
+            <ion-item>Créer un CV</ion-item>
+            <ion-item>Rechercher des annonces</ion-item>
+            <ion-item>Définir des alertes</ion-item>
           </ion-menu-toggle>
 
           <ion-menu-toggle *ngIf="user.isEntreprise()">
-              <ion-item>Poster une annonce</ion-item>
-              <ion-item>Lister vos annonces</ion-item>
-              <ion-item>Lister les candidatures</ion-item>
+            <ion-item>Poster une annonce</ion-item>
+            <ion-item>Lister vos annonces</ion-item>
+            <ion-item>Lister les candidatures</ion-item>
           </ion-menu-toggle>
 
         </ion-list>

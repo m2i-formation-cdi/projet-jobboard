@@ -21,6 +21,16 @@ export class AppComponent {
       title: 'List',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Ajouter votre entreprise',
+      url: '/entreprise-form',
+      icon: 'add'
+    },
+    {
+      title:'Ajouter un compte candidat',
+      url:'/candidate-form',
+      icon:'md-add-circle'
     }
   ];
 

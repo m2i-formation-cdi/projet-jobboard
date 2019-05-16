@@ -68,7 +68,7 @@ app.post('/login', (req, res) => {
 app.use('/candidat', routesCandidats);
 app.use('/entreprise', routesEntreprises);
 app.use('/annonce', routesAnnonces);
-app.use('/candidatures', routesCandidatures);
+app.use('/', routesCandidatures);
 
 //Lancement de l'application
 app.listen(3000);
