@@ -33,6 +33,10 @@
             <ion-item>Lister les candidatures</ion-item>
           </ion-menu-toggle>
 
+          <ion-menu-toggle *ngIf="user.isCandidat()">
+            <ion-item routerLink="/liste-annonce">Nos offres d' emplois</ion-item>
+          </ion-menu-toggle>
+
         </ion-list>
       </ion-content>
     </ion-menu>
