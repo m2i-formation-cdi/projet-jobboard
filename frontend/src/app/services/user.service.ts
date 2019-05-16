@@ -65,4 +65,25 @@ export class UserService {
   public getRole(): string{
     return this.role;
   }
+
+  public setId(id):UserService{
+    this.id = id;
+    return this;
+  }
+
+  public setEmail(email):UserService{
+    this.email = email;
+    return this;
+  }
+
+  public setToken(token):UserService{
+    this.token = token;
+    return this;
+  }
+
+  public setRole(role):UserService{
+    this.role = role;
+    return this;
+  }
+  
 }
