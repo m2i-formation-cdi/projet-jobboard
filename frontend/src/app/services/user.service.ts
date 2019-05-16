@@ -91,4 +91,11 @@ export class UserService {
     return this;
   }
 
+  public logout(){
+    this.id = null;
+    this.email = null;
+    this.token = null;
+    this.role = 'anonymous';
+  }
+
 }
