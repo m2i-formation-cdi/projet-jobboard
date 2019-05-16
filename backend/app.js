@@ -38,11 +38,11 @@ app.use( (req, res, next)=> {
 });
 
 /**
- * Requête afin de trouver 
+ * Requête afin d'authentifier l'utilisateur 
  */
 app.use('/login', (req, res, next)=> {
    let sql;
-   if(req.body.candidat){
+   if(req.body.status == 'candidat'){
       sql = "SELECT * FROM candidats";
       req.role = 'candidat';
    } else {
@@ -72,6 +72,9 @@ app.use('/login', (req, res, next)=> {
    });
 });
 
+/**
+ * Route d'authentification
+ */
 app.post('/login', (req, res) => {
    if(req.user && req.user.length >0){
       let user = req.user[0];

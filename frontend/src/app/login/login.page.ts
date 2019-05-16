@@ -23,6 +23,7 @@ export class LoginPage implements OnInit {
   }
 
   validForm() {
+    console.log(this.credentials)
     this.user.authenticate(this.credentials)
       .then(
         (response: any) => {
