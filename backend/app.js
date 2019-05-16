@@ -67,7 +67,7 @@ app.use('/login', (req, res, next)=> {
 
 app.post('/login', (req, res) => {
    if(req.user && req.user.length >0){
-      res.json({success: true, data: user});
+      res.json({success: true, user: user});
    } else {
       res.json({success: false, error: "Infos d'authentification incorrectes"});
    }

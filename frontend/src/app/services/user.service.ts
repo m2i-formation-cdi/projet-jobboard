@@ -24,11 +24,11 @@ export class UserService {
         this.http.post(environment.API_URL + '/login', credentials)
         .subscribe(
           (data:any)=> {
-            this.id = data.id;
+            this.id = data.user.id;
             //this.token = data.token;
-            this.email = data.email;
-            this.role = data.role;
-            resolve();
+            this.email = data.user.email;
+            this.role = data.user.role;
+            resolve(data);
           },
           (err) => {
             reject(err);
