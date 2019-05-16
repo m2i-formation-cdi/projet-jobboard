@@ -10,8 +10,9 @@ const connection = mysql.createConnection(
    }
 );
 
+
 //Activation de la base de données
-connection.query('USE jobboard');
+ connection.query('USE jobboard');
 
 //Exportation du module de connection
 module.exports = connection;
