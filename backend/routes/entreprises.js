@@ -23,12 +23,13 @@ router.post('/new', (req, res) => {
    db.query(
       sql,
       insertEntrepriseData,
-      (err) => {
+      (err, resu, fiel) => {
          //Gestion de la réponse
          if (err) {
             res.json({ error: err });
          } else {
-            res.json({ insert: "OK" });
+           
+            res.json({ insert: resu });
          }
       });
 

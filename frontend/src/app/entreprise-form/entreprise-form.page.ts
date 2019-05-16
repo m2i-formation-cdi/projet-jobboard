@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-entreprise-form',
@@ -22,7 +23,14 @@ export class EntrepriseFormPage implements OnInit {
     id_secteur: ""
   }
 
-  constructor(private httpClient: HttpClient, private router: Router) { }
+  public loginEntreprise = {
+    id: "",
+    token: "",
+    email: "",
+    role: "entreprise"
+  };
+
+  constructor(private httpClient: HttpClient, private router: Router, private user: UserService) { }
 
   ngOnInit() {
     let req = this.httpClient.get('http://localhost:3000/entreprise/secteur');
@@ -41,6 +49,9 @@ export class EntrepriseFormPage implements OnInit {
       .subscribe(
         (res: any) => {
           if (res.insert) {
+            this.user.setRole("entreprise");
+            this.user.setEmail(this.entrepriseInput.email);
+            this.user.setId(res.insert.insertId);
             this.router.navigateByUrl('/home');
           } else {
             console.log(res.error);
