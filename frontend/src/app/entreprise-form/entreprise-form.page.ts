@@ -42,7 +42,7 @@ export class EntrepriseFormPage implements OnInit {
     );
   }
 
-
+  
   sendFormInput() {
 
     let req = this.httpClient.post('http://localhost:3000/entreprise/new', this.entrepriseInput)
@@ -59,7 +59,7 @@ export class EntrepriseFormPage implements OnInit {
 
         }
       )
-
+      console.log(this.user.getId);
 
   };
 

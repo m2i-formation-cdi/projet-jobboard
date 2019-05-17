@@ -22,7 +22,7 @@ router.post('/new', (req, res) => {
       description_annonce: req.body.description_annonce,
       id_entreprise: req.body.id_entreprise,
       id_profession: req.body.id_profession,
-      type_contrat: req.body.type_contrat,
+      id_type_contrat: req.body.id_type_contrat,
       salaire_min: req.body.salaire_min,
       salaire_max: req.body.salaire_max
    };
@@ -39,6 +39,33 @@ router.post('/new', (req, res) => {
             res.json({ insert: "OK" });
          }
       });
+});
+
+
+router.get('/profession', (req, res) => {
+   const sql = "SELECT * FROM professions";
+
+   db.query(sql, (err, data) => {
+      if (err) {
+         res.json({ error: err });
+      } else {
+         res.json({ data });
+      }
+   });
+
+});
+
+router.get('/typeContrat', (req, res) => {
+   const sql = "SELECT * FROM types_contrats";
+
+   db.query(sql, (err, data) => {
+      if (err) {
+         res.json({ error: err });
+      } else {
+         res.json({ data });
+      }
+   });
+
 });
 
 

@@ -8,35 +8,40 @@
   <ion-list>
     <ion-item>
       <ion-label position="floating">Titre</ion-label>
-      <ion-input type="text" [(ngModel)]="entrepriseInput.titre"></ion-input>
+      <ion-input type="text" [(ngModel)]="insertAnnonce.titre"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Desciption de l'annonce</ion-label>
-      <ion-input type="text" [(ngModel)]="entrepriseInput.desciption_annonce"></ion-input>
+      <ion-textarea value="Taper votre annonce" [(ngModel)]="insertAnnonce.description_annonce"></ion-textarea>
     </ion-item>
 
 
     <ion-item>
       <ion-label position="floating">Profession</ion-label>
-      <ion-select [(ngModel)]="entrepriseInput.id_secteur">
-        <ion-select-option *ngFor='let secteur of secteurs' value={{secteur.id}}>{{secteur.libelle}}
+      <ion-select [(ngModel)]="insertAnnonce.id_profession">
+        <ion-select-option *ngFor="let profession of professionsListe" value={{profession.id}}>
+          {{profession.libelle}}
         </ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Type de contrat</ion-label>
-      <ion-select [(ngModel)]="entrepriseInput.id_secteur">
-        <ion-select-option *ngFor='let secteur of secteurs' value={{secteur.id}}>{{secteur.libelle}}
+      <ion-select [(ngModel)]="insertAnnonce.id_type_contrat">
+        <ion-select-option *ngFor="let typeContrat of typeContratListe" value={{typeContrat.id}}>
+          {{typeContrat.libelle}}
         </ion-select-option>
       </ion-select>
     </ion-item>
 
+
+
     <ion-item>
-      <ion-label>Salaire</ion-label>
-      <ion-range min="0" max="1000000" pin="true" step="1" snaps="true" dual-knobs="true"></ion-range>
+      <ion-label position="floating">Salaire par mois</ion-label>
+      <ion-range [(ngModel)]="salaireInput" min="0" max="50000" step="100" pin="true" dual-knobs="true"></ion-range>
     </ion-item>
+
 
   </ion-list>
 </ion-content>
