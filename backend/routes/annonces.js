@@ -5,11 +5,59 @@ const db = require('../shared/database');
 const router = express.Router();
 
 router.get('/search', (req, res) => {
-   res.json({ ok: true });
+
+   //Création de la commande SQL d'insertion
+   //     const sqlSelectOne = 'SELECT * FROM annonces WHERE id = ?';
+
+   //     //Récupération des infos nécessaire pour l'insert
+   //    const selectAnnonceById = {
+   //      id: req.body.id
+   //    };
+
+   // //Lancer la requêt à la base de données
+   // db.query(
+   //    sqlSelectOne,
+   //    selectAnnonceById,
+   //    (err) => {
+   //       //Gestion de la réponse
+   //       if (err) {
+   //          res.json({ error: err });
+   //       } else {
+   //          res.json({ insert: OK });
+   //       }
+   //    });
+
 });
 
+
 router.post('/candidature', (req, res) => {
-   res.json({ ok: true });
+
+   const { id } = req.params;
+   //Création de la commande SQL d'insertion
+   const sql = "INSERT INTO candidatures SET ?";
+   //Récupération des infos nécessaire pour l'insert
+   const insertCandidatureData = {
+
+      date_candidature: req.body.date_candidature,
+      id_candidat: req.body.id_candidat,
+      id_annonce: req.body.id_annonce,
+      lettre_motivation: req.body.lettre_motivation,
+      id_cv: req.body.id_cv
+
+   };
+   //Lancer la requêt à la base de données
+   db.query(
+      sql,
+      insertCandidatureData,
+      (err) => {
+         //Gestion de la réponse
+         if (err) {
+            res.json({ error: err });
+         } else {
+            res.json({ insert: OK });
+         }
+      });
+
 });
 
 router.post('/new', (req, res) => {
@@ -44,7 +92,17 @@ router.post('/new', (req, res) => {
 
 router.get('/profession', (req, res) => {
    const sql = "SELECT * FROM professions";
+   db.query(sql, (err, data) => {
+      if (err) {
+         res.json({ error: err });
+      } else {
+         res.json({ data });
+      }
+   });
+});
 
+router.get('/liste', (req, res) => {
+   const sql = "SELECT * FROM annonces";
    db.query(sql, (err, data) => {
       if (err) {
          res.json({ error: err });
@@ -66,6 +124,13 @@ router.get('/typeContrat', (req, res) => {
       }
    });
 
+
+});
+
+
+
+router.post('/new', (req, res) => {
+   res.json({ ok: true });
 });
 
 

@@ -15,6 +15,9 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
+  { path: 'search', 
+    loadChildren: './search/search.module#SearchPageModule' },
+
   { 
     path: 'login', 
     loadChildren: './login/login.module#LoginPageModule' 
@@ -30,7 +33,14 @@ const routes: Routes = [
   { 
     path: 'post-an-add-page', 
     loadChildren: './post-an-add-page/post-an-add-page.module#PostAnAddPagePageModule' 
-  }
+  },
+  {
+    path: 'liste-annonce',
+    loadChildren: './liste-annonce/liste-annonce.module#ListeAnnoncePageModule'
+  },
+  // { path: 'postule', 
+  // loadChildren: './postule/postule.module#PostulePageModule' }
+  
 ];
 
 @NgModule({
